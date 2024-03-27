@@ -1,0 +1,30 @@
+{% extends "admin/login.html" %}
+{% load i18n %}
+
+{% block content %}
+{% if form.errors and not form.non_field_errors %}
+<p class="errornote">
+{% if form.errors.items|length == 1 %}
+  {% blocktrans %}Please enter the correct {{ form.errors.items.0.0 }} and password for a staff account. Note that both fields may be case-sensitive.{% endblocktrans %}
+{% else %}
+  {% blocktrans %}Please enter the correct username and password for a staff account. Note that both fields may be case-sensitive.{% endblocktrans %}
+{% endif %}
+</p>
+{% endif %}
+
+<div id="content-main">
+  <form action="{{ app_path }}" method="post" id="login-form">{% csrf_token %}
+    <div class="form-row">
+      <label for="id_username">{% trans 'Name' %}:</label>
+      <input type="text" name="username" id="id_username" autofocus required>
+    </div>
+    <div class="form-row">
+      <label for="id_password">{% trans 'Password' %}:</label>
+      <input type="password" name="password" id="id_password" required>
+    </div>
+    <div class="submit-row">
+      <input type="submit" value="{% trans 'Login' %}">
+    </div>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,232 @@
+.header-banner {
+    background-color: #FFCD00; /* Couleur de fond jaune */
+    background-color: lightslategrey;
+    color: black;
+    padding: 40px 0; /* Ajustez l'espacement au-dessus et en dessous du contenu de l'en-tête */
+    text-align: center;
+  }
+  .header-content {
+    display: flex;
+    flex-direction: column; /* Empiler le contenu verticalement */
+    align-items: center; /* Centrer le contenu horizontalement */
+    gap: 20px; /* Espacement entre les éléments */
+  }
+  .search-container {
+    display: flex;
+    justify-content: center; /* Centrer la zone de recherche */
+    width: 100%;
+    margin-top: 20px; /* Espacement au-dessus de la zone de recherche */
+  }
+  .search-box {
+    width: 100%; /* Largeur de la zone de recherche */
+    padding: 10px;
+    font-size: 1rem; /* Taille de la police dans la zone de recherche */
+    border: none;
+    border-radius: 5px; /* Arrondir les coins de la zone de recherche */
+  }
+  .search-button {
+    padding: 10px 20px;
+    background-color: black; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte du bouton */
+    border: none;
+    border-radius: 5px; /* Arrondir les coins du bouton */
+    cursor: pointer; /* Changer le curseur lorsque vous survolez le bouton */
+    margin-left: -5px; /* Aligner le bouton avec la zone de recherche */
+  }
+  .feature-container {
+    display: flex;
+    justify-content: space-around; /* Espace autour des éléments */
+    width: 100%;
+    margin-top: 20px; /* Espacement au-dessus des fonctionnalités */
+  }
+  .feature {
+    width: 30%; /* Largeur de chaque fonctionnalité */
+  }
+
+
+
+/* les offres demplois */
+.card {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card-img-top {
+    height: 200px; /* Fixez une hauteur ou utilisez 'object-fit' pour ajuster les images */
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 1.25rem; /* Taille de la police pour les titres */
+    margin-bottom: .75rem;
+}
+
+.card-text {
+    font-size: .875rem; /* Taille de la police pour le texte */
+}
+.card-text.text-right {
+  text-align: right; /* Alignez le lieu à droite */
+}
+
+.badge {
+    margin-left: .5rem;
+}
+
+.btn-warning {
+    color: #fff; /* Changez la couleur du texte si nécessaire */
+}
+
+.card {
+  margin-bottom: 20px;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.card-title {
+  margin-bottom: auto;
+  text-align: center; 
+}
+.company-sector, .company-location, .company-size {
+  font-size: 0.9em;
+  color: gray;
+}
+.company-offers {
+  font-weight: bold;
+  color: #0056b3;
+}
+.follow-btn {
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+.carousel-inner > .carousel-item > .card {
+  float: left;
+  width: 33.333%; /* Display three items per slide */
+}
+.carousel-control-next, .carousel-control-prev {
+  width: 5%; /* Control size */
+}
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card {
+  cursor: pointer;
+}
+
+.card:hover .truncate {
+  white-space: normal;
+  overflow: visible;
+  height: auto;
+}
+
+
+.navbar {
+  background-color: #000; /* Noir de fond */
+  justify-content: center;
+  display: flex;
+}
+
+.navbar-brand {
+  color: #fff; /* Blanc pour le texte */
+}
+
+.nav-link {
+  color: #fff; /* Blanc pour les liens */
+}
+
+.nav-link:hover {
+  color: #ddd; /* Un peu plus clair au survol */
+}
+
+.btn-outline-success {
+  color: #fff; /* Blanc pour le texte */
+  border-color: #fff; /* Blanc pour la bordure */
+}
+
+.btn-outline-success:hover {
+  background-color: #fff; /* Blanc pour le fond au survol */
+  color: #000; /* Noir pour le texte */
+}
+
+.btn-secondary {
+  color: #000; /* Noir pour le texte */
+  background-color: lightslategrey; /* light */
+  justify-content:right;
+}
+
+.form-control {
+  background-color: rgba(255, 255, 255, 0.1); /* Blanc transparent pour le fond */
+  border: none; /* Pas de bordure */
+  color: #fff; /* Blanc pour le texte */
+}
+
+
+/*pides de la page*/
+
+.footer {
+  background-color: #000; /* Couleur de fond noir */
+  color: #fff; /* Texte blanc */
+  padding: 20px 0; /* Espacement interne */
+}
+
+.footer h5 {
+  color: #fff; /* Titres blancs */
+  padding-bottom: 10px; /* Espacement sous les titres */
+}
+
+.footer ul {
+  list-style: none; /* Pas de puces */
+  padding-left: 0; /* Pas de padding à gauche */
+}
+
+.footer ul li a {
+  color: #fff; /* Liens blancs */
+  text-decoration: none; /* Pas de soulignement */
+  transition: color 0.3s ease; /* Transition douce pour le survol */
+}
+
+.footer ul li a:hover {
+  color: #ff0; /* Couleur de survol */
+}
+
+.footer input[type=email] {
+  padding: 10px;
+  margin-top: 10px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 5px;
+}
+
+.footer button {
+  padding: 10px 20px;
+  background-color: #ff0; /* Fond jaune */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.footer button:hover {
+  background-color: #ccc; /* Fond gris au survol */
+}
+
+/* Style supplémentaire pour la responsivité et l'organisation du pied de page */
+@media (max-width: 768px) {
+  .footer .row {
+    text-align: center;
+  }
+
+  .footer .col-md-6 {
+    margin-bottom: 20px;
+  }
+}
+
+
+
