@@ -9,11 +9,11 @@ class User(models.Model):
         return self.name
     
 
-#données choloate scraper
-class Result(models.Model):
-    name = models.CharField(max_length=255)
-    price = models.CharField(max_length=255)
-    url = models.URLField()
+# #données choloate scraper
+# class Result(models.Model):
+#     name = models.CharField(max_length=255)
+#     price = models.CharField(max_length=255)
+#     url = models.URLField()
     
 class Company(models.Model):
     name = models.TextField(verbose_name="Name")
@@ -25,3 +25,9 @@ class Company(models.Model):
 
     def __str__(self):
         return self.name
+class Chaussure(models.Model):
+    image_url = models.TextField(blank=True, null=True)
+    #price est de type float
+    price_cfa = models.FloatField(blank=True, null=True)
+    product_url = models.TextField(blank=True, null=True)
+    title = models.TextField(blank=True, null=True)

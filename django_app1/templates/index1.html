@@ -1,0 +1,207 @@
+
+<!Doctype html>
+<html>
+<head>
+    <title>Home</title>
+    
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static 'fic_script.js' %}"></script>
+
+<style>
+    
+  .form-control {
+    border: 1px solid #ced4da; /* Bordure grise */
+    background-color: #ffffff; /* Fond blanc */
+}
+
+.form-control:focus {
+    border-color: #80bdff; /* Bordure bleue lors du focus */
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Ombre bleue légère autour du champ */
+}
+/* Fixez une hauteur ou une hauteur minimale pour les titres pour que tous aient la même taille */
+.card .card-body .card-title {
+  min-height: 50px; /* Ajustez selon la hauteur de titre maximale attendue */
+  overflow: hidden; /* Cache le texte qui dépasse la hauteur fixée */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limite le texte à deux lignes */
+  -webkit-box-orient: vertical;
+}
+</style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary"x style="background-color:white">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">HabillesVous</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/">Se connecter</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- zone de recherche de chaussure -->
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form action="{% url 'chaussure-search' %}" method="get" class="my-3">
+        <div class="input-group">
+          <input type="text" name="price_min" class="form-control" placeholder="Prix min" value="{{ price_min|default:'0 CFA' }}">
+          <input type="text" name="price_max" class="form-control" placeholder="Prix max" value="{{ price_max|default:'0 CFA' }}">
+          <select name="sexe" class="form-select">
+              <option value="">Sélectionnez le sexe</option>
+              <option value="f" {% if sexe == 'f' %}selected{% endif %}>Féminin</option>
+              <option value="m" {% if sexe == 'm' %}selected{% endif %}>Masculin</option>
+          </select>
+          <button type="submit" class="btn btn-primary">Rechercher</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Carrousel de Bootstrap pour les chaussures -->
+<div class="mx-5">
+<div id="carouselExampleControls" class="carousel slide mx-5" data-bs-ride="carousel" data-bs-interval="false">
+  <div class="carousel-inner"> 
+      {% for chaussure in chaussures %}
+          {% if forloop.counter0|divisibleby:8 %}
+              <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                  <div class="row">
+          {% endif %}
+                      
+              <div class="col-md-3">
+                  <div class="card chaussure-card overflow-hidden mb-3">
+                      <!-- Affichage de l'image de la chaussure -->
+                      <img src="{{ chaussure.image_url }}" class="card-img-top" alt="{{ chaussure.title }}">
+                      <div class="card-body">
+                          <h7 class="card-title">{{ chaussure.title }}</h7>
+                          <p class="card-text">Prix: {{ chaussure.price_cfa }} CFA</p>
+                          <!-- Assurez-vous que product_url est une URL absolue -->
+                          <a href="{{ chaussure.product_url }}" class="btn btn-primary">Voir Produit</a>
+                      </div>
+                  </div>
+              </div>
+
+          {% if forloop.counter|divisibleby:8 or forloop.last %}
+                  </div>
+              </div>
+          {% endif %}
+      {% endfor %}
+  </div>
+  </div>
+
+  <!-- Contrôles du carrousel -->
+  <a class="carousel-control-prev" href="#carouselChaussures" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Précédent</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselChaussures" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Suivant</span>
+  </a>
+</div>
+<!-- Fin du Carrousel Bootstrap pour les chaussures -->
+<div data-companies="{{ chaussures|safe }}">
+  <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        <li class="page-item">
+            <a class="page-link" href="#" id="previous-page">Previous</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#" id="next-page">Next</a>
+        </li>
+    </ul>
+</nav>
+</div>
+
+
+<div class="row" justify-content-center>
+  <button type="button" class="btn btn-primary mt-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
+    <h4>Voir les chaussures les moins chères</h4>
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 800px;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mx-5">
+            <div id="carouselExampleControls" class="carousel slide mx-5" data-bs-ride="carousel" data-bs-interval="false">
+              <div class="carousel-inner"> 
+                  {% for chaussure in produits_moins_chers %}
+                      {% if forloop.counter0|divisibleby:8 %}
+                          <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                              <div class="row">
+                      {% endif %}
+                                  
+                          <div class="col-md-3">
+                              <div class="card chaussure-card overflow-hidden mb-3">
+                                  <!-- Affichage de l'image de la chaussure -->
+                                  <img src="{{ chaussure.image_url }}" class="card-img-top" alt="{{ chaussure.title }}">
+                                  <div class="card-body">
+                                      <!-- Assurez-vous que product_url est une URL absolue -->
+                                      <a href="{{ chaussure.product_url }}" class="btn btn-primary">Voir Produit</a>
+                                  </div>
+                              </div>
+                          </div>
+            
+                      {% if forloop.counter|divisibleby:8 or forloop.last %}
+                              </div>
+                          </div>
+                      {% endif %}
+                  {% endfor %}
+              </div>
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer" >
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">FERMER</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+<footer class="footer" style="background-color:#007bff;color:white">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-6">
+        <h5>À PROPOS</h5>
+        <ul >
+          <li><a href="#" style="color:white">Concept</a></li>
+          <li><a href="https://www.linkedin.com/in/mouhamed-mbaye-87184a18b/" style="color:white"><p>Qui sommes-nous ?</p></a></li>
+        </ul>
+      </div>
+    </div>  
+  </div>
+
+</footer>
+    <script src="{% static 'fic_script.js' %}"></script>
+
+    </body>
+</html>

@@ -82,3 +82,11 @@ webdriver-manager==4.0.1
 whitenoise==6.6.0
 wsproto==1.2.0
 zope.interface==6.1
+
+
+asgiref==3.5.2
+Django==4.1.4
+psycopg2-binary==2.9.5
+sqlparse==0.4.3
+tzdata==2022.7
+whitenoise==6.2.0

@@ -230,3 +230,95 @@
 
 
 
+/* Stylisation des cartes de chaussures */
+.card {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Permet de pousser le bouton en bas de la carte */
+}
+
+.card-title {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.card-text {
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+.btn {
+  background-color: #007bff;
+  color: white;
+  border: 0;
+  border-radius: 0.25rem;
+  padding: 0.375rem 0.75rem;
+  margin-top: auto; /* Ajoute une marge au-dessus du bouton si nécessaire */
+}
+
+/* Stylisation des boutons de navigation du carrousel */
+.carousel-control-prev,
+.carousel-control-next {
+  filter: invert(100%);
+}
+
+/* Pagination en bas du carrousel */
+.pagination {
+  margin-top: 1rem;
+}
+
+.page-item .page-link {
+  color: #007bff;
+}
+
+.page-item.active .page-link {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+
+
+
+/* Stylisation des cartes de chaussures avec des marges */
+.chaussure-card {
+  margin-right: 15px;
+  margin-left: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optionnel: ajoute une ombre pour un effet de profondeur */
+  margin-bottom: 30px; /* Espace en dessous de chaque carte pour éviter le chevauchement */
+}
+
+/* Assurer l'espacement autour des éléments de la rangée */
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+/* Assurer l'espacement dans les colonnes pour la réactivité */
+.col,
+.col-md-4 {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Stylisation du bouton Voir Produit */
+.chaussure-card .btn-primary {
+  width: 100%; /* Le bouton occupe toute la largeur de la carte */
+  border-radius: 0; /* Boutons avec bords carrés */
+}
+
+
+
+
