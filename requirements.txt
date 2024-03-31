@@ -22,7 +22,7 @@ h11==0.14.0
 hyperlink==21.0.0
 idna==3.6
 incremental==22.10.0
-ipython
+ipython=3.10
 itemadapter==0.8.0
 itemloaders==1.1.0
 jedi==0.19.1
