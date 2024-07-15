@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-
+/*
   document.addEventListener('DOMContentLoaded', (event) => {
     // Attendre 3 secondes après que la page ait chargé
     setTimeout(() => {
@@ -29,6 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
       myModal.show();
     }, 3000);  // 3000 millisecondes correspondent à 3 secondes
   });
-
+*/
 
   
