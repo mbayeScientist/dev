@@ -21,8 +21,8 @@ def index(request):
 
 from .models import Company
 
-
-
+#projet1
+#fonction pour afficher et en meme temps filtrer les emplois par secteur
 def companies(request):
     search_term = request.GET.get('search_term', '')  # Obtenez le terme de recherche de la requête GET
     if search_term:
@@ -45,6 +45,8 @@ from django.shortcuts import render
 from django.db.models import Q
 from .models import Chaussure
 
+#projet sur les chaussures
+#focntion pour afficher et en meme temps filtrer les chaussures par prix(max et min) et par sexe
 def chaussure_search(request):
     price_min = request.GET.get('price_min')
     price_max = request.GET.get('price_max')
