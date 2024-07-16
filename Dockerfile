@@ -42,7 +42,11 @@ FROM builder as dev-envs
 # Install git
 RUN apk add --no-cache git
 
+<<<<<<< HEAD
 # Add docker group and vscode user ee
+=======
+# Add docker group and vscode user
+>>>>>>> 4d2b9448c663fed338dee4dc9c47e958c2a5e72d
 RUN addgroup -S docker && \
     adduser -S --shell /bin/bash --ingroup docker vscode
 

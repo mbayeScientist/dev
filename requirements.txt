@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 asgiref==3.7.2
 asttokens==2.4.1
 attrs==23.2.0
@@ -82,3 +83,27 @@ webdriver-manager==4.0.1
 whitenoise==6.6.0
 wsproto==1.2.0
 zope.interface==6.1
+=======
+# Django version (you can specify a specific version if needed)
+Django>=4.0,<5.0
+
+# Django Bootstrap 5 integration
+django-bootstrap-v5
+django_extensions
+# Optionally, you can include other commonly used packages
+# Database adapters (e.g., PostgreSQL)
+psycopg2-binary>=2.9.0
+
+# For handling static files (only if using Django's static file handling)
+whitenoise>=6.2.0
+
+# Package for managing environment variables
+python-dotenv>=1.0.0
+
+# Testing and development tools
+pytest>=7.0.0
+pytest-django>=4.5.0
+
+# For form handling and extra features (optional)
+django-crispy-forms>=1.14.0
+>>>>>>> 4d2b9448c663fed338dee4dc9c47e958c2a5e72d
